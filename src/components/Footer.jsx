@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="pie">
+    <div className="Footer">
       <div className="container">
         <footer className="py-3 my-4">
           <p className="text-center">
@@ -15,3 +15,4 @@ function Footer() {
 }
 
 export default Footer;
+

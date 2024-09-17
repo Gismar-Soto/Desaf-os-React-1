@@ -8,8 +8,10 @@
   --primary-color: #007bff;
   --secondary-color: #6c757d;
   --border-radius: 10px;
+  --border-radius-card: 20px;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --card-size: 350px;
+  --card-margin: 20px;
 }
 
 * {
@@ -19,6 +21,10 @@
 }
 
 body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: var(--font-family);
   line-height: var(--line-height);
   font-weight: var(--font-weight);
@@ -30,100 +36,94 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  flex: 1; 
+}
 
-.navegador, .bordes, .pie {
-  background-color: var(--background-color);
+/* Estilos del header */
+.header {
+  background: url('https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_1280.jpg') center/cover;
   color: white;
-}
-
-.bordes {
-  border: 1px solid white;
-  border-radius: var(--border-radius);
-  padding-bottom: 40px;
-}
-
-.sep {
-  gap: 10px;
-}
-
-.separador {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.card {
-  margin: 20px;
-  width: var(--card-size);
-  height: var(--card-size);
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-  border: 1px solid #ddd;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-body {
-  padding: 1.5rem;
   text-align: center;
+  padding: 50px 0;
 }
 
-.card-title, .card-text {
-  margin-bottom: 1rem;
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
+.header p {
+  font-size: 1.2rem;
 }
 
-.card-text {
-  font-size: 1rem;
-  color: #000; 
+/* Estilos de la tarjeta de pizza */
+.pizza-card {
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  margin: var(--card-margin);
 }
 
-.img-fluid {
-  border-radius: 15px;
-  height: 150px;
-  width: 100%;
+.pizza-img {
+  height: 220px;
   object-fit: cover;
+  border-top-left-radius: var(--border-radius-card);
+  border-top-right-radius: var(--border-radius-card);
 }
 
-ul li {
-  margin-bottom: 0.5rem;
-  color: #000; 
+.pizza-body {
+  padding: 20px;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: space-between;
+.pizza-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.pizza-ingredients-label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.pizza-icon {
+  color: orange;
+  font-size: 1.2rem;
+}
+
+.pizza-ingredients-list {
+  font-size: 0.85rem;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
-.btn {
-  flex: 1;
-  padding: 3px;
-  font-size: 0.875rem;
-  text-align: center;
+.pizza-ingredient-item {
+  display: flex;
+  align-items: center;
 }
 
-.btn-outline-primary, .btn-outline-secondary {
-  border-color: var(--primary-color);
+.pizza-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
 }
 
-.btn-outline-primary:hover, .btn-outline-secondary:hover {
+.pizza-btn {
+  border-radius: 30px;
+}
+
+.pizza-btn-dark {
   background-color: var(--primary-color);
-  color: #fff;
+  border: none; 
 }
 
-.btn i {
-  margin-left: 5px; 
-  font-size: 1rem; 
-}
-
-.btn-outline-primary i, .btn-outline-secondary i {
-  color: var(--primary-color);
+.Footer {
+  background-color: #333; 
+  color: white; 
+  padding: 6px 0; 
+  font-size: 1.2rem; 
+  text-align: center;
 }
