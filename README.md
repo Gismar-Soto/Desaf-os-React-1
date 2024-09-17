@@ -8,5 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # react_pizzeria
 
-![Uploading image.png…]()
+
+![image](https://github.com/user-attachments/assets/b9d7c3ad-1c2b-452f-b5b1-6964b24d2c81)
+
 
