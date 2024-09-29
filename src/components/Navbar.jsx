@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPizzaSlice, faLock, faUserPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faPizzaSlice, faSignInAlt, faUserPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Register from './Register';
+import Login from './Login';
 
-const NavbarComponent = () => {
+const MyNavbar = () => {
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleShowRegister = () => setShowRegister(true);
+  const handleCloseRegister = () => setShowRegister(false);
+
+  const handleShowLogin = () => setShowLogin(true);
+  const handleCloseLogin = () => setShowLogin(false);
+
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="px-3">
-      <Navbar.Brand href="/" className="text-light">
-        ¡Pizzería Mamma Mía!
-      </Navbar.Brand>
-      <Nav className="ml-auto d-flex align-items-center">
-        <Nav.Link href="/" className="btn btn-outline-info d-flex align-items-center">
-          <FontAwesomeIcon icon={faPizzaSlice} className="me-2" /> Home
-        </Nav.Link>
-        <Nav.Link href="/login" className="btn btn-outline-info d-flex align-items-center">
-          <FontAwesomeIcon icon={faLock} className="me-2" /> Login
-        </Nav.Link>
-        <Nav.Link href="/register" className="btn btn-outline-info d-flex align-items-center">
-          <FontAwesomeIcon icon={faUserPlus} className="me-2" /> Register
-        </Nav.Link>
-      </Nav>
-      <Nav className="ms-auto">
-        <Button variant="outline-info" className="d-flex align-items-center">
-          <FontAwesomeIcon icon={faShoppingCart} className="me-2" /> Total: $25.000
-        </Button>
-      </Nav>
-    </Navbar>
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg" className="px-3">
+        <Navbar.Brand href="/" className="text-light"> 
+          ¡Pizzería Mamma Mía! 
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">
+              <FontAwesomeIcon icon={faPizzaSlice} className="me-1" />
+              Home
+            </Nav.Link>
+            <Button variant="outline-light" onClick={handleShowLogin} className="ms-2">
+              <FontAwesomeIcon icon={faSignInAlt} className="me-1" />
+              Login
+            </Button>
+            <Button variant="outline-light" onClick={handleShowRegister} className="ms-2">
+              <FontAwesomeIcon icon={faUserPlus} className="me-1" />
+              Register
+            </Button>
+          </Nav>
+          <Nav>
+            <Button variant="outline-info" className="me-2">
+              <FontAwesomeIcon icon={faShoppingCart} className="me-1" />
+              Total: $25.000
+            </Button>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
+      <Register show={showRegister} handleClose={handleCloseRegister} />
+      <Login show={showLogin} handleClose={handleCloseLogin} />
+    </>
   );
 };
 
-export default NavbarComponent;
+export default MyNavbar;

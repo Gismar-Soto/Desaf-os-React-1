@@ -6,11 +6,7 @@
   --text-color: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
   --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --border-radius: 10px;
   --border-radius-card: 20px;
-  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --card-size: 350px;
   --card-margin: 20px;
 }
 
