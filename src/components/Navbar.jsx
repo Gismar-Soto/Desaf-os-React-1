@@ -39,7 +39,7 @@ const MyNavbar = ({ totalAmount }) => {
           </Nav>
           {/* Botón del carrito con el total */}
           <Button variant="outline-info" className="ms-auto">
-            Total: ${totalAmount.toFixed(2)}
+            Total: ${totalAmount.toFixed(0)}
             <FontAwesomeIcon icon={faShoppingCart} className="ms-2" />
           </Button>
         </Navbar.Collapse>

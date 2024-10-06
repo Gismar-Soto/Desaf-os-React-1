@@ -9,7 +9,7 @@ const CardPizza = ({ pizza, addToCart, removeFromCart }) => {
       <img src={pizza.image} alt={pizza.name} className="pizza-img" />
       <div className="pizza-body">
         <h3 className="pizza-title">{pizza.name}</h3>
-        <p className="pizza-price">Precio: ${pizza.price.toFixed(2)}</p>
+        <p className="pizza-price">Precio: ${pizza.price.toLocaleString('es-ES')}</p>
 
         <div className="pizza-ingredients">
           <p className="pizza-ingredients-label">

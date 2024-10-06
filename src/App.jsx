@@ -29,7 +29,7 @@ const App = () => {
     setCart((prevCart) => {
       const pizzaInCart = prevCart.find((pizza) => pizza.id === pizzaId);
       if (pizzaInCart.quantity === 1) {
-        // Si la cantidad es 1, elimina la pizza del carrito
+        // Si la cantidad es 0, elimina la pizza del carrito
         return prevCart.filter((pizza) => pizza.id !== pizzaId);
       } else {
         // Si la cantidad es mayor a 1, resta 1 a la cantidad
@@ -45,11 +45,9 @@ const App = () => {
 
   return (
     <div>
-      <Navbar totalAmount={totalAmount} />
+      <Navbar totalAmount={totalAmount} /> 
       <Header />
-
       <div className="container">
-        <h1 className="text-center my-4">Pizzería Mamma Mia</h1>
         <div className="row">
           {pizzas.map((pizza) => (
             <div key={pizza.id} className="col-md-4 mb-4">
@@ -60,9 +58,7 @@ const App = () => {
       </div>
 
       {/* Carrito de compras */}
-      <Cart cart={cart} setCart={setCart} />
-
-      {/* Footer */}
+      <Cart cart={cart} incrementQuantity={addToCart} decrementQuantity={removeFromCart} />
       <Footer />
     </div>
   );
