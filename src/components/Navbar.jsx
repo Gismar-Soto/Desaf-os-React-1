@@ -5,7 +5,7 @@ import { faPizzaSlice, faSignInAlt, faUserPlus, faShoppingCart } from '@fortawes
 import Register from './Register';
 import Login from './Login';
 
-const MyNavbar = () => {
+const MyNavbar = ({ totalAmount }) => {
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
@@ -37,15 +37,15 @@ const MyNavbar = () => {
               Register
             </Button>
           </Nav>
-          <Nav>
-            <Button variant="outline-info" className="me-2">
-              <FontAwesomeIcon icon={faShoppingCart} className="me-1" />
-              Total: $25.000
-            </Button>
-          </Nav>
+          {/* Botón del carrito con el total */}
+          <Button variant="outline-info" className="ms-auto">
+            Total: ${totalAmount.toFixed(2)}
+            <FontAwesomeIcon icon={faShoppingCart} className="ms-2" />
+          </Button>
         </Navbar.Collapse>
       </Navbar>
 
+      {/* Modales de Login y Register */}
       <Register show={showRegister} handleClose={handleCloseRegister} />
       <Login show={showLogin} handleClose={handleCloseLogin} />
     </>

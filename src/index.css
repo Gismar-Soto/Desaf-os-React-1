@@ -80,6 +80,7 @@ body {
 .pizza-ingredients-label {
   font-size: 0.9rem;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .pizza-icon {
@@ -95,17 +96,18 @@ body {
   display: flex;
   justify-content: center;
 }
+.pizza-ingredients {
+  margin-bottom: 15px;
+  text-align: center;
+  
+}
 
 .pizza-ingredient-item {
   display: flex;
   align-items: center;
 }
 
-.pizza-price {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #000;
-}
+
 
 .pizza-btn {
   border-radius: 30px;
@@ -122,4 +124,11 @@ body {
   padding: 6px 0; 
   font-size: 1.2rem; 
   text-align: center;
+}
+.pizza-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+  text-align: center;  /* Centrar el texto */
 }

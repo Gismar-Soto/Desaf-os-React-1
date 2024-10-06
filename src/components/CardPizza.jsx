@@ -1,40 +1,53 @@
 import React from "react";
+import { Button } from "react-bootstrap";  
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faShoppingCart, faPizzaSlice } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faTrash, faPizzaSlice } from "@fortawesome/free-solid-svg-icons";
 
-function CardPizza({ name, price, ingridients, imagen }) {
+const CardPizza = ({ pizza, addToCart, removeFromCart }) => {
   return (
-    <div className="card pizza-card shadow-sm rounded">
-      <img
-        src={imagen}
-        className="card-img-top pizza-img"
-        alt={name}
-      />
-      <div className="card-body text-center pizza-body">
-        <h5 className="card-title pizza-title">{name}</h5>
-        <p className="text-muted pizza-ingredients-label">
-          <FontAwesomeIcon icon={faPizzaSlice} className="me-2 pizza-icon" />
-          <strong>Ingredientes:</strong>
-        </p>
-        <ul className="list-unstyled text-muted pizza-ingredients-list">
-          {ingridients.map((e, index) => (
-            <li key={index} className="pizza-ingredient-item">
-              {e}
-            </li>
-          ))}
-        </ul>
-        <p className="card-text pizza-price">Precio: ${price.toLocaleString("es")}</p>
-        <div className="d-flex justify-content-around mt-3">
-          <a href="#" className="btn btn-outline-secondary pizza-btn-outline">
-            Ver Más <FontAwesomeIcon icon={faEye} />
-          </a>
-          <a href="#" className="btn btn-dark pizza-btn-dark">
-            Añadir <FontAwesomeIcon icon={faShoppingCart} />
-          </a>
+    <div className="pizza-card">
+      <img src={pizza.image} alt={pizza.name} className="pizza-img" />
+      <div className="pizza-body">
+        <h3 className="pizza-title">{pizza.name}</h3>
+        <p className="pizza-price">Precio: ${pizza.price.toFixed(2)}</p>
+
+        <div className="pizza-ingredients">
+          <p className="pizza-ingredients-label">
+            <FontAwesomeIcon
+              icon={faPizzaSlice}
+              style={{ color: "orange" }}
+              className="me-2"
+            />
+            Ingredientes:
+          </p>
+          <ul className="pizza-ingredients-list">
+            {pizza.ingredients.map((ingredient, index) => (
+              <li key={index} className="pizza-ingredient-item">
+                {ingredient}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="d-flex justify-content-between">
+          <Button
+            style={{ backgroundColor: "grey", border: "none" }}
+            className="pizza-btn"
+            onClick={() => removeFromCart(pizza.id)}
+          >
+            <FontAwesomeIcon icon={faTrash} /> Eliminar
+          </Button>
+          <Button
+            style={{ backgroundColor: "black", border: "none" }}
+            className="pizza-btn"
+            onClick={() => addToCart(pizza.id)}
+          >
+            <FontAwesomeIcon icon={faCartShopping} /> Añadir
+          </Button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default CardPizza;
